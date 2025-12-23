@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Aadhar Management</title>
+    <link rel="stylesheet" href="{% static 'css/index.css'%}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>Aadhar-Student</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="{% url 'add_aadhar' %}" class="nav-link">
+                         Add Aadhar
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'add_student' %}" class="nav-link">
+                        Add Student
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'show_aadhar' %}" class="nav-link">
+                         Show All Aadhar
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'show_student' %}" class="nav-link">
+                         Show All Student
+                    </a>
+                </li>
+                 <li class="nav-item">
+                    <a href="{% url 'relation_table' %}" class="nav-link">
+                        Relation Table
+                    </a>
+                </li>
+            </ul>
+        </div> 
+    </nav>
+    <div class="content-div">
+        <center><p>Student Aadhar Management System</p></center>
+    </div>     
+
+</body>
+</html>

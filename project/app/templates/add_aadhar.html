@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add_aadhar</title>
+    <link rel="stylesheet" href="{% static 'css/add_aadhar.css' %}">
+</head>
+<body>
+<section id="add-aadhar" class="form-section">
+    <div class="form-container">
+        <div class="form-header">
+            <h2>Add New Aadhar</h2>
+        </div>
+        
+        <form class="aadhar-form" id="aadharForm" method="post" action="{% url 'save_aadhar' %}">
+        {% csrf_token %}
+            <div class="form-group">
+                <label for="aadharNo">Aadhar Number</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="aadharNo" 
+                        name="aadharNo" 
+                        placeholder="Enter 12-digit Aadhar Number"
+                        pattern="[0-9]{12}"
+                        maxlength="12"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="createdDate">Created Date</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="date" 
+                        id="createdDate" 
+                        name="createdDate"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="createdBy">Created By</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="createdBy" 
+                        name="createdBy"
+                        placeholder="Enter name by Aadhar created"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary" value="save_adhar">
+                    Save Aadhar
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+    overflow-x: hidden;
+}
+
+
+.aadhar-table {
+    width: 90%;
+    margin: 2rem auto;
+    border-collapse: collapse;
+    backdrop-filter: blur(16px);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.2);
+    font-size: 0.98rem;
+    table-layout: fixed;
+}
+
+.aadhar-table th,
+.aadhar-table td {
+    padding: 1.1rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+    word-wrap: break-word;
+    color: #111827;
+    background-color: #889efd;
+}
+
+.aadhar-table th {
+    background: white;
+    color: #374151;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+
+
