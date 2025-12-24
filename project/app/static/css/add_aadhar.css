@@ -83,7 +83,7 @@ body {
     font-family: inherit;
  }
 
- .aadhar-form select:focus {
+.aadhar-form select:focus {
     outline: none;
     border-color: #4f46e5;
     background: white;
