@@ -20,6 +20,12 @@ class Student(models.Model):
     # on_delete=models.CASCADE --> iska mtlb hai agar hum stu_adhar ko delete kr rhe hai to adahr_no bhi delete ho jayega
     # on_delete=models.PROTECTED --> opposite of CASCADE
 
+# using related_name parameter to make fast response: mainly used for the reverse access:
+class Student1(models.Model):
+    Stu_name=models.CharField(max_length=40)
+    Stu_email=models.EmailField()
+    Stu_contact=models.IntegerField()
+    Stu_aadhar=models.OneToOneField(Aadhar, on_delete=models.CASCADE,related_name='aadhar') 
 
         
     

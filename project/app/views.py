@@ -1,5 +1,5 @@
 from django.shortcuts import render , redirect
-from .models import Aadhar, Student
+from .models import Aadhar, Student, Student1
 
 # Create your views here.
 def index(req):
@@ -39,7 +39,13 @@ def save_student(req):
         stu_aadharNo=req.POST.get('stu_aadharNo')
         # a_inst instance of stu_adharno
         a_inst = Aadhar.objects.get(id=stu_aadharNo)
-        Student.objects.create(
+        # Student.objects.create(
+        #     Stu_name=name, 
+        #     Stu_email=email, 
+        #     Stu_contact=cnumber,
+        #     Stu_aadhar=a_inst
+        #    )
+        Student1.objects.create(
             Stu_name=name, 
             Stu_email=email, 
             Stu_contact=cnumber,
@@ -49,15 +55,17 @@ def save_student(req):
     return redirect(add_student)
 
 def show_student(req):
-    studentData=Student.objects.all().order_by()
+    # studentData=Student.objects.all().order_by()
+    # return render(req, 'show_Student.html',{'studentData':studentData})
+    studentData=Student1.objects.all().order_by()
     return render(req, 'show_Student.html',{'studentData':studentData})
 
 def relation_table(req):
     ## with out using related_name attribute---------
     
     # # through Forword access--------------------------(access Student table to Aadhar table)
-    all_data = Student.objects.all()
-    return render(req,'relation_table.html',{'data':all_data})
+    # all_data = Student.objects.all()
+    # return render(req,'relation_table.html',{'data':all_data})
     # for i in all_data:
     #     print(i.Stu_name)
     #     print(i.Stu_email)
@@ -66,6 +74,11 @@ def relation_table(req):
     #     print(i.Stu_aadhar.Created_date)
     #     print(i.Stu_aadhar.Created_by)
     
+    # all_data = Student1.objects.all()
+    # return render(req,'relation_table.html',{'data':all_data})
+
+
+
     # through reverse access---------------------------------(access Aadhar table to Student table)
     # all_data = Aadhar.objects.all()
     # return render(req,'relation_table.html',{'data':all_data})
@@ -76,3 +89,21 @@ def relation_table(req):
     #     print(i.student.Stu_name)
     #     print(i.student.Stu_email)
     #     print(i.student.Stu_contact)
+
+    all_data = Aadhar.objects.all()
+    print(all_data.query)
+    # fast response(by executing only single time query on all objects) when we use related_name (select_related or prefetch_related)
+    # select_related--> for "one to one"
+    # prefetch_related--> for "one to many" or "many to many"
+    xyz = Aadhar.objects.select_related('aadhar')
+    print(xyz.query)
+    print(xyz)
+    # for i in all_data:
+    for i in xyz:
+        print(i.Aadhar_no)
+        print(i.Created_by)
+        print(i.Created_date)
+        print(i.aadhar.Stu_name)
+        print(i.aadhar.Stu_email)
+        print(i.aadhar.Stu_contact)
+    return render(req,'relation_table.html',{'data':all_data})
