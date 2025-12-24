@@ -1,0 +1,27 @@
+{% load static %}
+
+<link rel="stylesheet", href="{% static 'css/show_aadhar.css'%}">
+
+<center><p style="font-size: 1.8rem; font-weight: 600; color: whitesmoke; margin-top: 10px;">Show All Details</p></center>
+<table  class="aadhar-table" border="2px solid black">
+    <tr>
+        <th>Sr. No</th>
+        <th>Student Name</th>
+        <th>Student Email</th>
+        <th>Student Contact</th>
+        <th>Aadhar Number</th>
+        <th>Created Date</th>
+        <th>Created by</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.Stu_name}}</td>
+        <td>{{i.Stu_email}}</td>
+        <td>{{i.Stu_contact}}</td>
+        <td>{{i.Stu_aadhar.Aadhar_no}}</td>
+        <td>{{i.Stu_aadhar.Created_date}}</td>
+        <td>{{i.Stu_aadhar.Created_by}}</td>
+    </tr>
+    {% endfor %}
+</table>

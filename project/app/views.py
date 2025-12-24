@@ -37,6 +37,7 @@ def save_student(req):
         email=req.POST.get('email')
         cnumber=req.POST.get('cnumber')
         stu_aadharNo=req.POST.get('stu_aadharNo')
+        # a_inst instance of stu_adharno
         a_inst = Aadhar.objects.get(id=stu_aadharNo)
         Student.objects.create(
             Stu_name=name, 
@@ -54,8 +55,9 @@ def show_student(req):
 def relation_table(req):
     ## with out using related_name attribute---------
     
-    # # through Forword access---------------------------
-    # all_data = Student.objects.all()
+    # # through Forword access--------------------------(access Student table to Aadhar table)
+    all_data = Student.objects.all()
+    return render(req,'relation_table.html',{'data':all_data})
     # for i in all_data:
     #     print(i.Stu_name)
     #     print(i.Stu_email)
@@ -64,12 +66,13 @@ def relation_table(req):
     #     print(i.Stu_aadhar.Created_date)
     #     print(i.Stu_aadhar.Created_by)
     
-    # through reverse access---------------------------------
-    all_data = Aadhar.objects.all()
-    for i in all_data:
-        print(i.Aadhar_no)
-        print(i.Created_by)
-        print(i.Created_date)
-        print(i.student.Stu_name)
-        print(i.student.Stu_email)
-        print(i.student.Stu_contact)
+    # through reverse access---------------------------------(access Aadhar table to Student table)
+    # all_data = Aadhar.objects.all()
+    # return render(req,'relation_table.html',{'data':all_data})
+    # for i in all_data:
+    #     print(i.Aadhar_no)
+    #     print(i.Created_by)
+    #     print(i.Created_date)
+    #     print(i.student.Stu_name)
+    #     print(i.student.Stu_email)
+    #     print(i.student.Stu_contact)
