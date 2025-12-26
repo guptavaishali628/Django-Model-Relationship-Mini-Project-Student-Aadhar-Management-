@@ -96,14 +96,14 @@ def relation_table(req):
     # select_related--> for "one to one"
     # prefetch_related--> for "one to many" or "many to many"
     xyz = Aadhar.objects.select_related('aadhar')
-    print(xyz.query)
-    print(xyz)
+    # print(xyz.query)
+    # print(xyz)
     # for i in all_data:
-    for i in xyz:
-        print(i.Aadhar_no)
-        print(i.Created_by)
-        print(i.Created_date)
-        print(i.aadhar.Stu_name)
-        print(i.aadhar.Stu_email)
-        print(i.aadhar.Stu_contact)
-    return render(req,'relation_table.html',{'data':all_data})
+    # for i in xyz:
+    #     print(i.Aadhar_no)
+    #     print(i.Created_by)
+    #     print(i.Created_date)
+    #     print(i.aadhar.Stu_name)
+    #     print(i.aadhar.Stu_email)
+    #     print(i.aadhar.Stu_contact)
+    return render(req,'relation_table.html',{'data':xyz})
